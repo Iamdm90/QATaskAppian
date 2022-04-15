@@ -1,0 +1,145 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-04-14T23:57:39.052Z",
+    "end": "2022-04-14T23:58:03.842Z",
+    "duration": 24790,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "348145cf-a80a-4072-840a-51341a10d58f",
+      "title": "",
+      "fullFile": "cypress/integration/searchresultpagetest.spec.js",
+      "file": "cypress/integration/searchresultpagetest.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c1184cbb-bf46-4d66-9315-d7fe86f32ca1",
+          "title": "Search Results Page Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Videos, Maps, Images, News, More, Tools buttons are visible",
+              "fullTitle": "Search Results Page Test Videos, Maps, Images, News, More, Tools buttons are visible",
+              "timedOut": null,
+              "duration": 13131,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('url'));\nsearchHomepage.getAcceptCookies().click();\nsearchHomepage.getSearchBox().type(this.data.searchItem1).type('{enter}');\nsearchResultPage.getToolsButton().should('be.visible');\nsearchResultPage.getMoreButton().should('be.visible');\nsearchResultPage.getMapsButton().should('be.visible').and('have.text', 'Maps');\nsearchResultPage.getImagesButton().should('be.visible').and('have.text', 'Images');\nsearchResultPage.getNewsButton().should('be.visible').and('have.text', 'News');\nsearchResultPage.getVideosButton().should('be.visible').and('have.text', 'Videos');",
+              "err": {},
+              "uuid": "274fa7d2-c5ae-43c9-b282-48b349c52fbf",
+              "parentUUID": "c1184cbb-bf46-4d66-9315-d7fe86f32ca1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test for searching with invalid text",
+              "fullTitle": "Search Results Page Test Test for searching with invalid text",
+              "timedOut": null,
+              "duration": 3878,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('url'));\nsearchHomepage.getAcceptCookies().click();\nsearchHomepage.getSearchBox().type(this.data.invalidSearchText).type('{enter}');\nsearchResultPage.getNoResultErrorParagraph().should('contain.text', `Your search - ${this.data.invalidSearchText} - did not match any documents.`);",
+              "err": {},
+              "uuid": "690dedf5-1767-4f6e-a2a5-926c08204158",
+              "parentUUID": "c1184cbb-bf46-4d66-9315-d7fe86f32ca1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test for availability of Sorting options",
+              "fullTitle": "Search Results Page Test Test for availability of Sorting options",
+              "timedOut": null,
+              "duration": 5912,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('url'));\nsearchHomepage.getAcceptCookies().click();\nsearchHomepage.getSearchBox().type(this.data.searchItem1).type('{enter}');\nsearchResultPage.getToolsButton().click();\nsearchResultPage.getAnytimeOptionsButton('Any time').should('be.visible');\nsearchResultPage.getAllResultsButton().should('be.visible');\nsearchResultPage.getAnytimeOptionsButton('Any time').click();\nsearchResultPage.getAnyTimeMenu().then($els => {\n  return Cypress.$.makeArray($els) // and extract inner text from each\n  .map(el => el.innerText);\n}).should('deep.equal', this.data.filterOptions);",
+              "err": {},
+              "uuid": "3393d218-1142-467d-8dd3-65574b7592db",
+              "parentUUID": "c1184cbb-bf46-4d66-9315-d7fe86f32ca1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "274fa7d2-c5ae-43c9-b282-48b349c52fbf",
+            "690dedf5-1767-4f6e-a2a5-926c08204158",
+            "3393d218-1142-467d-8dd3-65574b7592db"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 22921,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
